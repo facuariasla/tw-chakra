@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { Stack, Switch, Text } from "@chakra-ui/react";
+import { Route, Routes } from "react-router-dom";
+import { Layout } from "./layout";
+import { Feed } from "./screens/Feed";
+import { MessagesScreen } from "./screens/MessagesScreen";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+        <Routes>
+          <Route path="/" exact element={<Feed />} />
+          <Route path="/messages" element={<MessagesScreen />} />
+        </Routes>
+    </Layout>
   );
 }
 
